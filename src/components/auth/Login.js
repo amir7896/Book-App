@@ -51,8 +51,8 @@ const Login = () => {
             let token = res.data.token;
             console.log("Login Response ===", res.data);
             localStorage.setItem("x-access-token", token);
-            localStorage.setItem('userID', res.data.userid)
-            localStorage.setItem('userName', res.data.username)
+            localStorage.setItem("userID", res.data.userid);
+            localStorage.setItem("userName", res.data.username);
 
             setTimeout(() => {
               resetForm({});
@@ -87,8 +87,8 @@ const Login = () => {
       .then((res) => {
         console.log("Backend google response success ===", res.data);
         localStorage.setItem("x-access-token", res.data.token);
-        localStorage.setItem('userID', res.data.userid)
-        localStorage.setItem('userName', res.data.username)
+        localStorage.setItem("userID", res.data.userid);
+        localStorage.setItem("userName", res.data.username);
         setTimeout(() => {
           // resetForm({});
           navigate("/books");
@@ -144,20 +144,19 @@ const Login = () => {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
-        <div className="m-2">
-          <GoogleLogin
-            clientId="530356703817-e4tgoq1bdvmtq4ds4l6np2uptjorrpjp.apps.googleusercontent.com"
-            buttonText="Login With Google"
-            onSuccess={responseSuccessGoogle}
-            onFailure={responseFailureGoogle}
-            cookiePolicy={"single_host_origin"}
-          />
-        </div>
+          <div className="m-2">
+            <GoogleLogin
+              clientId="YOUR GOOGLE CLIENT ID"
+              buttonText="Login With Google"
+              onSuccess={responseSuccessGoogle}
+              onFailure={responseFailureGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
+          </div>
           <Button variant="contained" fullWidth={true} type="submit">
             Login
           </Button>
           {/* Google Login */}
-
 
           {/* Forgot Password Button */}
           <Link
